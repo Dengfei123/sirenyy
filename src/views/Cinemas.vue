@@ -13,10 +13,11 @@
             </div>
             <router-link to="" class="yylist" v-for="(item,i) of list" :key="i">
                 <div class="left_title">
-                    <span >11111111111111111111111111111111111111111111111111111111111111</span>
-                    <span >2222</span>
+                    <span class="title">{{item.cName}}</span>
+                    <span class="subtitle">{{item.loca}}</span>
+                    <span class="bot_title">{{item.hall}}</span>
                 </div>
-                <div>
+                <div class="right_title">
                     <p>29.8元起</p>
                 </div>
             </router-link>
@@ -60,7 +61,7 @@ export default {
         var obj={cityId:0};
         this.axios.get(url,{params:obj})
         .then(res=>{
-         console.log(res);
+         this.list=res.data.data;
      });
     },
     methods:{
@@ -96,5 +97,20 @@ export default {
         width: 70%;
         overflow: hidden;
         align-items: flex-start;
+        color:#000;
+    }
+    .right_title{
+        color:red;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .subtitle{
+        font-size: 16px;
+        color:rgb(184, 172, 12);
+    }
+    .bot_title{
+        font-size: 12px;
+        color:blueviolet;
     }
 </style>

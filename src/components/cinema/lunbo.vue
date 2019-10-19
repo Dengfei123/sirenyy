@@ -1,13 +1,31 @@
 <template>
     <div  class="lunbo">
         <van-swipe :autoplay="3000" indicator-color="white">
-            <van-swipe-item><router-link to=""><img src="../../assets/1.png"></router-link></van-swipe-item>
-            <van-swipe-item><router-link to=""><img src="../../assets/2.png"></router-link></van-swipe-item>
-            <van-swipe-item><router-link to=""><img src="../../assets/3.png"></router-link></van-swipe-item>
-            <van-swipe-item><router-link to=""><img src="../../assets/4.png"></router-link></van-swipe-item>
+            <van-swipe-item  v-for="(item,i) of list" :key="i">
+                <router-link to="">
+                    <img :src="'http://127.0.0.1:4000/'+item.img">
+                </router-link>
+            </van-swipe-item>
         </van-swipe>             
     </div>    
 </template>
+<script>
+export default {
+    data(){
+        return {
+            list:[]
+        }
+    },
+    created(){
+        var url="carousel";
+        this.axios.get(url)
+        .then(res=>{
+            console.log(res);
+         this.list=res.data.data;
+        });
+    }
+}
+</script>
 <style scoped>
   .lunbo{
       position: absolute;

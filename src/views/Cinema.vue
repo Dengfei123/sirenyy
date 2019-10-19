@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="zhuti">
-            <div>
+            <div >
                 <router-link to="">
                     <div>
                         <h5>太平洋影城(深圳同泰时代广场店)</h5>
@@ -80,6 +80,8 @@ export default {
         width: 25px;
     }
     .zhuti{
-        margin-top:40px; 
+        margin-top:40px;
+        display: flex;
+
     }
 </style>
