@@ -20,7 +20,6 @@ export default {
         var url="carousel";
         this.axios.get(url)
         .then(res=>{
-            console.log(res);
          this.list=res.data.data;
         });
     }
